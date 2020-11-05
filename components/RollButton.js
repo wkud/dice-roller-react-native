@@ -1,11 +1,13 @@
 import React from 'react';
 import {StyleSheet, View, Text, TouchableHighlight} from 'react-native';
+import fonts from '../styles/fonts';
+import {backgroundPrimary} from '../styles/commonStyles';
 
 const RollButton = () => {
   return (
     <TouchableHighlight activeOpacity={0.6} onPress={() => alert('lol')}>
       <View style={styles.container}>
-        <Text style={styles.text}>Roll</Text>
+        <Text style={fonts.whiteMediumFont}>Roll</Text>
       </View>
     </TouchableHighlight>
   );
@@ -15,11 +17,9 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 10,
     marginBottom: 30,
-    backgroundColor: '#6818f7',
-    justifyContent: 'center',
-    alignItems: 'center',
     minHeight: 50,
+    alignItems: 'center',
+    ...backgroundPrimary,
   },
-  text: {color: '#fff', fontSize: 20},
 });
 export default RollButton;

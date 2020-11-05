@@ -1,10 +1,12 @@
 import React from 'react';
 import {StyleSheet, View, Text} from 'react-native';
+import fonts from '../styles/fonts';
+import {backgroundPrimary} from '../styles/commonStyles'
 
 const HeaderBar = () => {
   return (
     <View style={styles.header}>
-      <Text style={styles.text}>DiceRoller</Text>
+      <Text style={fonts.whiteMediumFont}>DiceRoller</Text>
     </View>
   );
 };
@@ -12,11 +14,10 @@ const styles = StyleSheet.create({
   header: {
     flex: 1,
     padding: 10,
-    backgroundColor: '#6818f7',
     maxHeight: 50,
-    justifyContent: 'center'
+    justifyContent: 'center',
+    ...backgroundPrimary
   },
-  text: {color: '#fff', fontSize: 20},
 });
 
 export default HeaderBar;

@@ -1,21 +1,21 @@
 import React from 'react';
 import {StyleSheet, View, Text} from 'react-native';
+import fonts from '../styles/fonts';
+import {marginHorizontal} from '../styles/commonStyles'
 
 const Equation = ({children}) => {
   return (
     <View style={styles.labelBody}>
-      <Text style={styles.text}>{children}</Text>
+      <Text style={fonts.grayMediumFont}>{children}</Text>
     </View>
   );
 };
 const styles = StyleSheet.create({
   labelBody: {
     flex: 1,
-    marginHorizontal: 30,
-    backgroundColor: '#000',
     maxHeight: 25 * 3.5,
-  },
-  text: {color: '#828282', fontSize: 20},
+    ...marginHorizontal,
+  }
 });
 
 export default Equation;

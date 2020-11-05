@@ -1,25 +1,24 @@
 import React from 'react';
 import {StyleSheet, View, Text} from 'react-native';
+import fonts from '../styles/fonts';
+import {marginHorizontal} from '../styles/commonStyles'
 
 const Result = ({children}) => {
   return (
-    <View style={styles.labelBody}>
-      <Text style={styles.text}>{children}</Text>
+    <View style={styles.container}>
+      <Text style={fonts.grayLargeFont}>{children}</Text>
     </View>
   );
 };
 const styles = StyleSheet.create({
-  labelBody: {
+  container: {
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'flex-end',
     alignItems: 'center',
-    marginTop: 0,
-    marginHorizontal: 30,
-    backgroundColor: '#222222',
     maxHeight: 80,
+    ...marginHorizontal
   },
-  text: {color: '#828282', fontSize: 80},
 });
 
 export default Result;

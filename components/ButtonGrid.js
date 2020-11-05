@@ -7,6 +7,8 @@ import {
   Dimensions,
   TouchableHighlight,
 } from 'react-native';
+import fonts from '../styles/fonts';
+import {marginHorizontal, backgroundPrimary} from '../styles/commonStyles'
 
 const ButtonGrid = () => {
   const buttonNames = [
@@ -20,18 +22,13 @@ const ButtonGrid = () => {
     {name: 'd3', key: 3},
     {name: 'd2', key: 2},
   ];
-  const onPageLayout = (event) => {
-    const {width, height} = event.nativeEvent.layout;
-    setGridDimensions({width, height});
-  };
   const renderItem = ({item}) => (
     <TouchableHighlight activeOpacity={0.6} onPress={() => alert('lol')}>
       <View style={styles.item}>
-        <Text style={styles.buttonText}>{item.name}</Text>
+        <Text style={fonts.whiteSmallFont}>{item.name}</Text>
       </View>
     </TouchableHighlight>
   );
-  // return <FlatList data={buttonNames} renderItem={({item}) => <Text key={item.key}>{item.name}</Text>} />;
   return (
     <FlatList
       style={styles.container}
@@ -41,32 +38,25 @@ const ButtonGrid = () => {
     />
   );
 };
-const containerMargin = {horizontal: 30, vertical: 0};
 const container = {
   flex: 3,
-  marginTop: 0,
-  marginHorizontal: containerMargin.horizontal,
-  marginVertical: containerMargin.vertical,
-  backgroundColor: '#000',
   height: Dimensions.get('window').height / 3,
   maxHeight: Dimensions.get('window').height / 3,
+  ...marginHorizontal,
 };
 const itemMargin = {horizontal: 5, vertical: 13};
 const item = {
-  backgroundColor: '#6818f7',
+  flex: 1,
   alignItems: 'center',
   justifyContent: 'center',
-  flex: 1,
   marginHorizontal: itemMargin.horizontal,
   marginVertical: itemMargin.vertical,
   width:
-    (Dimensions.get('window').width -  containerMargin.horizontal * 2) / 3 -
-    2 * itemMargin.horizontal,
+  (Dimensions.get('window').width - container.marginHorizontal * 2) / 3 -
+  2 * itemMargin.horizontal,
   height: container.height / 3 - 2 * itemMargin.vertical + 4,
+  ...backgroundPrimary,
 };
-const styles = StyleSheet.create({
-  item,
-  container,
-  buttonText: {color: '#fff', fontSize: 15},
-});
+const styles = StyleSheet.create({item, container});
+
 export default ButtonGrid;
