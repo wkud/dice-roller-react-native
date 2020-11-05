@@ -1,17 +1,14 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {
   StyleSheet,
   View,
   Text,
   FlatList,
-  Button,
   Dimensions,
   TouchableHighlight,
 } from 'react-native';
 
-const ButtonGrid = ({children}) => {
-  const [gridDimensions, setGridDimensions] = useState({width: 0, height: 0});
-
+const ButtonGrid = () => {
   const buttonNames = [
     {name: 'd100', key: 100},
     {name: 'd20', key: 20},
@@ -44,13 +41,15 @@ const ButtonGrid = ({children}) => {
     />
   );
 };
+const containerMargin = {horizontal: 30, vertical: 0};
 const container = {
-  flex: 5,
+  flex: 3,
   marginTop: 0,
-  margin: 30,
-  height: 40,
+  marginHorizontal: containerMargin.horizontal,
+  marginVertical: containerMargin.vertical,
   backgroundColor: '#000',
   height: Dimensions.get('window').height / 3,
+  maxHeight: Dimensions.get('window').height / 3,
 };
 const itemMargin = {horizontal: 5, vertical: 13};
 const item = {
@@ -61,7 +60,7 @@ const item = {
   marginHorizontal: itemMargin.horizontal,
   marginVertical: itemMargin.vertical,
   width:
-    (Dimensions.get('window').width - container.margin * 2) / 3 -
+    (Dimensions.get('window').width -  containerMargin.horizontal * 2) / 3 -
     2 * itemMargin.horizontal,
   height: container.height / 3 - 2 * itemMargin.vertical + 4,
 };
@@ -71,6 +70,3 @@ const styles = StyleSheet.create({
   buttonText: {color: '#fff', fontSize: 15},
 });
 export default ButtonGrid;
-
-
-

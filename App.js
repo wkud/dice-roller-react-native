@@ -4,27 +4,26 @@ import HeaderBar from './components/HeaderBar';
 import Equation from './components/Equation';
 import Result from './components/Result';
 import ButtonGrid from './components/ButtonGrid'
+import RollButton from './components/RollButton';
 
 const App = () => {
   return (
-    <>
+    <View style={styles.rootContainer}>
       <HeaderBar />
       <Equation>Let's role some dice!</Equation>
       <Result>= 120</Result>
       <ButtonGrid/>
-      <Text>cze</Text>
-    </>
+      <RollButton/>
+      {/* <Text>cze</Text> */}
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
-  header: {
+  rootContainer: {
     flex: 1,
-    padding: 10,
-    backgroundColor: '#6818f7',
-    maxHeight: 40,
-  },
-  text: {color: '#fff'},
+    justifyContent: 'space-between'
+  }
 });
 
 // const styles = StyleSheet.create({

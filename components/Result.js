@@ -15,10 +15,9 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
     alignItems: 'center',
     marginTop: 0,
-    margin: 30,
-    height: 40,
-    backgroundColor: '#000',
-    maxHeight: 25 * 4,
+    marginHorizontal: 30,
+    backgroundColor: '#222222',
+    maxHeight: 80,
   },
   text: {color: '#828282', fontSize: 80},
 });

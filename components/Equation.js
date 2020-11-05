@@ -11,10 +11,9 @@ const Equation = ({children}) => {
 const styles = StyleSheet.create({
   labelBody: {
     flex: 1,
-    margin: 30,
-    height: 30,
+    marginHorizontal: 30,
     backgroundColor: '#000',
-    maxHeight: 25 * 4 ,
+    maxHeight: 25 * 3.5,
   },
   text: {color: '#828282', fontSize: 20},
 });
