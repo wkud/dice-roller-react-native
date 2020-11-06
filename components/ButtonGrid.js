@@ -1,9 +1,12 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {StyleSheet, FlatList, Dimensions} from 'react-native';
 import {marginHorizontal} from '../styles/commonStyles';
 import DiceButton from './DiceButton';
+import {DiceContext} from '../contexts/DiceContext';
 
-const ButtonGrid = ({buttonNames}) => {
+const ButtonGrid = () => {
+  const {buttonNames} = useContext(DiceContext);
+  
   return (
     <FlatList
       style={styles.container}

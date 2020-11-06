@@ -4,62 +4,49 @@ export const DiceContext = createContext();
 
 export const DiceProvider = (props) => {
   const buttonNames = [
-    {name: 'd100', key: 100},
-    {name: 'd20', key: 20},
-    {name: 'd12', key: 12},
-    {name: 'd10', key: 10},
-    {name: 'd8', key: 8},
-    {name: 'd6', key: 6},
-    {name: 'd4', key: 4},
-    {name: 'd3', key: 3},
-    {name: 'd2', key: 2},
+    {name: 'd100', diceType: 100},
+    {name: 'd20', diceType: 20},
+    {name: 'd12', diceType: 12},
+    {name: 'd10', diceType: 10},
+    {name: 'd8', diceType: 8},
+    {name: 'd6', diceType: 6},
+    {name: 'd4', diceType: 4},
+    {name: 'd3', diceType: 3},
+    {name: 'd2', diceType: 2},
   ];
 
-  const [state, setState] = useState({
+  const initialState = {
     equationString: '',
     totalResult: 0,
     totalResultString: '_',
     rolled: false,
-  });
+  };
+  const [state, setState] = useState(initialState);
 
   const onRollButtonClick = () => {
     setState({
       ...state,
-      totalResultString: totalResult.toString(),
+      totalResultString: state.totalResult.toString(),
       rolled: true,
     });
+    console.log(state.rolled);
   };
 
   const onDiceButtonClick = (diceType) => {
-    tryClear();
-    
-    if (state.equationString === '') {
-      equationString += 'd' + diceType;
-    } else {
-      equationString += '+d' + diceType;
-    }
-    
     const randomNumber = randomize(diceType);
+    
+    const tempState = state.rolled ? initialState : state //tryClear()
     setState({
-      ...state,
-      equationString: (state.equationString === '' ? '' : state.equationString + '+') + 'd'+diceType,
-      totalResult: state.totalResult + randomNumber,
+      ...tempState,
+      equationString:
+        (tempState.equationString === '' ? '' : tempState.equationString + '+') +
+        'd' +
+        diceType,
+      totalResult: tempState.totalResult + randomNumber,
     });
   };
-  
-  const tryClear = () => {
-    if (state.rolled)
-    setState({
-      ...state,
-      equationString: '',
-      totalResultString: '_',
-      totalResult: 0,
-      rolled: false,
-    });
-  };
-  
-  const randomize = (diceType) =>
-    1 + Math.floor(diceType * Math.random());
+
+  const randomize = (diceType) => 1 + Math.floor(diceType * Math.random());
 
   return (
     <DiceContext.Provider

@@ -8,15 +8,17 @@ import RollButton from './RollButton';
 import {DiceContext} from '../contexts/DiceContext';
 
 const MainScreen = () => {
-  const {equationString, totalResultString, buttonNames, onRollButtonClick, onDiceButtonClick} = useContext(
+  const {equationString, totalResultString, buttonNames} = useContext(
     DiceContext,
   );
   return (
     <View style={styles.rootContainer}>
       <HeaderBar />
-      <Equation>Let's role some dice!</Equation>
-      <Result>= 120</Result>
-      <ButtonGrid buttonNames={buttonNames} />
+      <Equation>
+        {equationString === '' ? "Let's role some dice!" : equationString}
+      </Equation>
+      <Result>{totalResultString}</Result>
+      <ButtonGrid />
       <RollButton />
     </View>
   );
