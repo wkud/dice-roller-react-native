@@ -22,6 +22,7 @@ const ButtonGrid = () => {
       data={buttonNames}
       renderItem={({item}) => <DiceButton item={item} />}
       numColumns={3}
+      scrollEnabled={false}
     />
   );
 };

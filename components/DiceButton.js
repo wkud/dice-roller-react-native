@@ -11,10 +11,8 @@ import {marginHorizontal, backgroundPrimary} from '../styles/commonStyles';
 
 const DiceButton = ({item}) => {
   return (
-    <TouchableHighlight activeOpacity={0.6} onPress={() => alert('lol')}>
-      <View style={styles.item}>
+    <TouchableHighlight underlayColor='#9553f4' style={styles.item} activeOpacity={0.6} onPress={() => alert('lol')}>
         <Text style={fonts.whiteSmallFont}>{item.name}</Text>
-      </View>
     </TouchableHighlight>
   );
 };
