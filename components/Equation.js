@@ -6,7 +6,7 @@ import {marginHorizontal} from '../styles/commonStyles'
 const Equation = ({children}) => {
   return (
     <View style={styles.labelBody}>
-      <Text style={fonts.grayMediumFont}>{children}</Text>
+      <Text style={fonts.grayMediumFont} numberOfLines={4}>{children}</Text>
     </View>
   );
 };
