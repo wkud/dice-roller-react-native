@@ -8,9 +8,7 @@ import RollButton from './RollButton';
 import {DiceContext} from '../contexts/DiceContext';
 
 const MainScreen = () => {
-  const {equationString, totalResultString, buttonNames} = useContext(
-    DiceContext,
-  );
+  const {equationString, totalResultString} = useContext(DiceContext);
   return (
     <View style={styles.rootContainer}>
       <HeaderBar />

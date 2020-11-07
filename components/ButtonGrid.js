@@ -6,7 +6,7 @@ import {DiceContext} from '../contexts/DiceContext';
 
 const ButtonGrid = () => {
   const {buttonNames} = useContext(DiceContext);
-  
+
   return (
     <FlatList
       style={styles.container}
@@ -14,6 +14,7 @@ const ButtonGrid = () => {
       renderItem={({item}) => <DiceButton item={item} />}
       numColumns={3}
       scrollEnabled={false}
+      keyExtractor={(item,) => item.diceType.toString()}
     />
   );
 };
