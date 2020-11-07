@@ -24,24 +24,25 @@ export const DiceProvider = (props) => {
   const [state, setState] = useState(initialState);
 
   const onRollButtonClick = () => {
+    const tempState = state.rolled ? initialState : state; //tryClear()
+
     setState({
-      ...state,
-      totalResultString: state.totalResult.toString(),
+      ...tempState,
+      totalResultString: state.rolled  ? '_' : tempState.totalResult.toString(),
       rolled: true,
     });
-    console.log(state.rolled);
   };
 
   const onDiceButtonClick = (diceType) => {
     const randomNumber = randomize(diceType);
-    
-    const tempState = state.rolled ? initialState : state //tryClear()
+
+    const tempState = state.rolled ? initialState : state; //tryClear()
     setState({
       ...tempState,
       equationString:
-        (tempState.equationString === '' ? '' : tempState.equationString + '+') +
-        'd' +
-        diceType,
+        (tempState.equationString === ''
+          ? ''
+          : tempState.equationString + '+') + `d${diceType}`,
       totalResult: tempState.totalResult + randomNumber,
     });
   };
