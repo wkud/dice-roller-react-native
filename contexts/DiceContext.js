@@ -28,7 +28,9 @@ export const DiceProvider = (props) => {
 
     setState({
       ...tempState,
-      totalResultString: state.rolled  ? '_' : tempState.totalResult.toString(),
+      totalResultString: state.rolled
+        ? '_'
+        : '= ' + tempState.totalResult.toString(),
       rolled: true,
     });
   };
